@@ -1,0 +1,28 @@
+{
+  "name": "cypresscucumber27112024",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "cypress": "^13.16.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "html": {
+      "enabled": true
+    },
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumber-report.json"
+    }
+  }
+}
