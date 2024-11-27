@@ -31,7 +31,7 @@ pipeline {
 
         post {
             always {
-            cucumber '**/cucumber-report.json'
+            cucumber '**/cucumber-report.json --exclude-skipped'
         }
         }
 }
