@@ -24,17 +24,14 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 // Run Cypress tests
-                bat 'npx cypress run --headless --browser chrome --spec %SPEC_FILES% --record --key 0aba12cc-bca1-4d48-b421-7a37fa2f5c57'
+                bat 'npx cypress run --headless --browser chrome --env tags=%TAGS%'
             }
         }
     }
 
         post {
             always {
-                allure includeProperties:
-                    false,
-                    jdk: '',
-                    results: [[path: './allure-results']]
+                cucumber buildStatus: 'UNCHANGED', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
             }
         }
 }
